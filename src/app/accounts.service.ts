@@ -22,9 +22,11 @@ export class AccountsService {
 
   addAccount(name: string, status: string) {
     this.accounts.push({name: name, status: status});
+    this.loggingService.logStatusChange(status);
   }
 
   updatesStatus(id: number, status: string) {
     this.accounts[id].status = status;
+    this.loggingService.logStatusChange(status);
   }
 }
